@@ -64,5 +64,5 @@ markdown_extensions:
 
 nav:
   - Home:
-    - Introduction: introduction.md
+    - Introduction: index.md
     - API: api.md

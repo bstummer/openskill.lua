@@ -1,0 +1,68 @@
+site_name: openskill.lua
+site_description: Documentation for OpenSkill
+site_author: Vaschex
+site_url: https://vaschex.github.io/openskill.lua
+
+repo_name: openskill.lua
+repo_url: https://github.com/Vaschex/openskill.lua
+edit_uri: ""
+
+theme:
+  #logo: 
+  #mkdosfavicon: assets/favicon.png
+  #icon:
+    #repo: fontawesome/brands/github
+  name: material
+  features:
+    #- navigation.tabs
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  highlightjs: true
+  hljs_languages:
+    - lua
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Vaschex/
+      name: Vaschex on GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/Vaschex
+      name: Vaschex on Twitter
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCdv59AWoiGNwPiBYgNNhwnQ
+      name: Vaschex on YouTube
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+nav:
+  - Home:
+    - Introduction: introduction.md
+    - API: api.md

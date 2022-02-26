@@ -26,12 +26,10 @@ Updates the values of the ratings and returns the result in arrays.
 ---
 #### WinProbability
 ```lua
-WinProbability(a : {rating}, b : {rating}, options : any?): number
+WinProbability(teams : {{rating}}, options : any?): {number}
 ```
-Calculates the probability of `a` winning. Unfortunately, this only works for 2 teams and not for n-teams, n-players. Please message me if you have a general solution.
+Calculates the probability of each team winning.
 ---
 #### DrawProbability
-```lua
 
-```
 Not available yet.

@@ -1,9 +1,9 @@
 --[[
 
-Tutorial & Documentation: 
+Tutorial & Documentation: vaschex.github.io/openskill.lua
 
-Version of this module: 1.0.0
-Based on philihp/openskill.js commit 267
+Version of this module: 1.1.0
+Based on philihp/openskill.js commit 283
 
 Ported to Lua & improved by Vaschex
 
@@ -107,24 +107,27 @@ function module.Rate(teams:{{rating}}, options:any?):{{{number}}}
 	return reorderedTeams
 end
 
---only works for 2 teams, pls message me if you have a general solution
-function module.WinProbability(a:{rating}, b:{rating}, options:any?):number
+function module.WinProbability(teams:{{rating}}, options:any?):{number}
 	options = options or {}
-	local muA, sigmaA = 0, 0
-	for _, v in ipairs(a) do
-		muA += v.mu
-		sigmaA += v.sigma ^ 2
+	local teamRatings = util.teamRating(teams, options)
+	local betaSq = constants.betaSq(options)
+	local n = #teams
+	local denom = (n * (n - 1)) / 2
+	local result = {}
+	for i, a in ipairs(teamRatings) do
+		local prob = 0
+		for q, b in ipairs(teamRatings) do
+			if i ~= q then
+				prob += statistics.phiMajor(
+					(a[1] - b[1]) / math.sqrt(n * betaSq + a[2] ^ 2 + b[2] ^ 2))
+			end
+		end
+		table.insert(result, prob / denom)
 	end
-	local muB, sigmaB = 0, 0
-	for _, v in ipairs(b) do
-		muB += v.mu
-		sigmaB += v.sigma ^ 2
-	end
-	return statistics.phiMajor((muA - muB) / math.sqrt((#a + #b) *
-		constants.betaSq(options) + (sigmaA + sigmaB)))
+	return result
 end
 
---function module.DrawProbability(teams:{{rating}}, options:any?):number
+--function module.DrawProbability(teams:{{rating}}, options:any?):{number}
 
 --end
 

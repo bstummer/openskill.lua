@@ -2,8 +2,8 @@
 
 Tutorial & Documentation: vaschex.github.io/openskill.lua
 
-Version of this module: 1.1.0
-Based on philihp/openskill.js commit 283
+Version of this module: 1.2.0
+Based on philihp/openskill.js commit 291
 
 Ported to Lua & improved by Vaschex
 
@@ -41,7 +41,6 @@ THE SOFTWARE.
 ---------------------------------------------------------
 
 local constants = require(script.Constants)
-local gaussian = require(script.Gaussian)
 local statistics = require(script.Statistics)
 local util = require(script.Util)
 local models = require(script.Models)
@@ -127,8 +126,30 @@ function module.WinProbability(teams:{{rating}}, options:any?):{number}
 	return result
 end
 
---function module.DrawProbability(teams:{{rating}}, options:any?):{number}
-
---end
+function module.DrawProbability(teams:{{rating}}, options:any?):number
+	options = options or {}
+	local teamRatings = util.teamRating(teams, options)
+	local betaSq, beta = constants.betaSq(options), constants.beta(options)
+	local n = #teams
+	if n == 0 then return
+	elseif n == 1 then return 1 end
+	local denom = (n * (n - 1)) / (if n > 2 then 1 else 2)
+	local playerCount = 0
+	for _, v in ipairs(teams) do
+		playerCount += #v
+	end
+	local drawMargin = math.sqrt(playerCount) * beta * statistics.phiMajorInverse((1 + 1 / n) / 2)	
+	local result = 0
+	for i, a in ipairs(teamRatings) do
+		for q, b in ipairs(teamRatings) do
+			if i ~= q then
+				local sigmaBar = math.sqrt(n * betaSq + a[2] ^ 2 + b[2] ^ 2)
+				result += statistics.phiMajor((drawMargin - a[1] + b[1]) / sigmaBar) -
+						statistics.phiMajor((a[1] - b[1] - drawMargin) / sigmaBar)
+			end
+		end
+	end
+	return math.abs(result) / denom
+end
 
 return module

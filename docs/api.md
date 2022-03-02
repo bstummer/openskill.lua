@@ -31,5 +31,7 @@ WinProbability(teams : {{rating}}, options : any?): {number}
 Calculates the probability of each team winning.
 ---
 #### DrawProbability
-
-Not available yet.
+```lua
+DrawProbability(teams : {{rating}}, options : any?): number
+```
+Calculates the probability of a draw between the teams. This is very useful to determine good team compositions in matchmaking.

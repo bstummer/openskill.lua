@@ -1,1 +1,1 @@
-[Tutorial & Documentation](https://vaschex.github.io/openskill.lua)
+[Tutorial & Documentation](https://bstummer.github.io/openskill.lua)

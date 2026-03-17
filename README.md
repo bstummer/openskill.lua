@@ -4,6 +4,8 @@ openskill.lua is an implementation of the [Weng-Lin Bayesian ranking](https://ww
 
 It is a Luau port of the amazing [openskill.js](https://github.com/philihp/openskill.js) module, designed specifically for Roblox game development.
 
+<br>
+
 ## Installation
 
 Get the module [here](https://www.roblox.com/library/8134663273) and insert it into your game (preferably in ServerStorage).
@@ -13,6 +15,8 @@ Alternatively, you can paste this directly into your Roblox Studio command bar:
 ```lua
 game:GetObjects("rbxassetid://8134663273")[1].Parent=game.ServerStorage
 ```
+
+<br>
 
 ## Quick Start
 
@@ -56,6 +60,8 @@ OpenSkill.Ordinal(a1) --> 0 (before rating)
 OpenSkill.Ordinal(a1) --> 2.3245624871094 (after winning)
 ```
 
+<br>
+
 ## Advanced Match Results
 
 ### Custom Ranks
@@ -85,6 +91,8 @@ OpenSkill.Rate({{a}, {b}, {c}, {d}}, {
 ```
 *Note: Ties should have either an equivalent rank or score.*
 
+<br>
+
 ## Rating Models
 
 openskill.lua provides two rating models: `PlackettLuce` and `ThurstoneMosteller`.
@@ -105,6 +113,7 @@ OpenSkill.Rate({{a}, {b}, {c}, {d}}, {
 })
 ```
 
+<br>
 
 ## API Reference
 
@@ -141,6 +150,8 @@ Calculates the probability of each team winning the match.
 OpenSkill.DrawProbability(teams : {{rating}}, options : any?): number
 ```
 Calculates the probability of a draw between the teams. This is extremely useful for determining fair team compositions in matchmaking.
+
+<br>
 
 ## Contributing
 

@@ -1,10 +1,10 @@
 site_name: openskill.lua
 site_description: Documentation for OpenSkill
-site_author: Vaschex
-site_url: https://vaschex.github.io/openskill.lua
+site_author: bstummer
+site_url: https://bstummer.github.io/openskill.lua
 
 repo_name: openskill.lua
-repo_url: https://github.com/Vaschex/openskill.lua
+repo_url: https://github.com/bstummer/openskill.lua
 edit_uri: ""
 
 theme:
@@ -45,14 +45,8 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Vaschex/
-      name: Vaschex on GitHub
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/Vaschex
-      name: Vaschex on Twitter
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCdv59AWoiGNwPiBYgNNhwnQ
-      name: Vaschex on YouTube
+      link: https://github.com/bstummer
+      name: bstummer on GitHub
 
 markdown_extensions:
   - admonition

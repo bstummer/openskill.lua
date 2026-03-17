@@ -1,11 +1,11 @@
 --[[
 
-Tutorial & Documentation: vaschex.github.io/openskill.lua
+Tutorial & Documentation: https://bstummer.github.io/openskill.lua/
 
 Version of this module: 1.2.0
 Based on philihp/openskill.js commit 291
 
-Ported to Lua & improved by Vaschex
+Ported to Lua & improved by bstummer
 
 ]]
 

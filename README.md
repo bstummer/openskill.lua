@@ -1,8 +1,18 @@
 # openskill.lua
 
-openskill.lua is an implementation of the [Weng-Lin Bayesian ranking](https://www.csie.ntu.edu.tw/~cjlin/papers/online_ranking/online_journal.pdf), a better, license-free alternative to the [TrueSkill](https://www.microsoft.com/en-us/research/project/trueskill-ranking-system) ranking system.
+openskill.lua is a fast, lightweight, and license-free skill rating system for Roblox. Based on the [Weng-Lin Bayesian ranking](https://www.csie.ntu.edu.tw/~cjlin/papers/online_ranking/online_journal.pdf) model, it serves as a direct, open-source alternative to Microsoft's TrueSkill algorithm.
 
-It is a Luau port of the amazing [openskill.js](https://github.com/philihp/openskill.js) module, designed specifically for Roblox game development.
+Whether you are building 1v1 competitive arenas, large-scale free-for-alls, or asymmetrical team games, this Luau port of [openskill.js](https://github.com/philihp/openskill.js) provides highly accurate player skill tracking to keep your matchmaking fair and engaging.
+
+<br>
+
+## Features
+- License-Free TrueSkill Alternative: Avoid the legal and commercial restrictions of TrueSkill by using the open-source Weng-Lin Bayesian ranking.
+- Multiple Rating Models: Choose between Plackett-Luce (default, logistic distribution) or Thurstone-Mosteller (Gaussian distribution).
+- Flexible Matchmaking: Accurately calculate both Win Probability and Draw Probability between multiple teams to ensure fair matches before they even start.
+- Custom Scoring & Ranks: Rate matches based on custom team placements, or input raw game scores directly (fully supports tie handling).
+- Multi-Player Teams: Supports asymmetric team sizes (e.g., 2v3 or free-for-all) and distributes skill adjustments accurately across all grouped players.
+- Safe Leaderboard Sorting: Uses an `Ordinal` system (`mu - 3 * sigma`) to represent a player's conservative skill floor, perfect for displaying public ranks.
 
 <br>
 
